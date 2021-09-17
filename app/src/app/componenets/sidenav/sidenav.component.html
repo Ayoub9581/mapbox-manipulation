@@ -1,0 +1,62 @@
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened>
+    <button
+      mat-button
+      class="menu-button"
+      fixed
+      [ngStyle]="{
+        background: '#000000',
+        width: '100%',
+        padding: '1rem',
+        margin: '0'
+      }"
+    >
+      <mat-icon>person</mat-icon>
+      <span>My plots</span>
+    </button>
+
+    <div layout-gt-xs="row" *ngFor="let plot of plots">
+      <div class="flex" *ngIf="plot.name && plot.image_url_plot">
+        <img
+          width="150px"
+          height="80px"
+          mat-card-image
+          src="{{ plot.image_url_plot }}"
+          alt="Photo of a Shiba Inu"
+        />
+        <div>
+          <span class="self-align">{{ plot.name }}</span
+          ><br />
+          <span> {{ plot.area }} ha</span>
+        </div>
+      </div>
+    </div>
+
+    <button
+      mat-button
+      class="menu-button"
+      fixed
+      (click)="openDialog()"
+      [ngStyle]="{
+        background: 'green',
+        width: '100%',
+        padding: '1rem',
+        margin: '0'
+      }"
+    >
+      <mat-icon>add_circle</mat-icon>
+      <span>Add new plot</span>
+    </button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z8">
+      <app-mapbox
+        (draw_)="draw_()"
+        (onDrawPlot)="onDrawPlot($event)"
+        (updateArea)="updateArea($event)"
+        [map]="map"
+        [plot]="plot"
+      ></app-mapbox>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
