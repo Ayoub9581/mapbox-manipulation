@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+djangorestframework = "*"
+django-environ = "*"
+gunicorn = "*"
+black = "==21.9b0"
+geojson = "*"
+django-extensions = "*"
+ipython = "*"
+psycopg2-binary = "*"
+markdown = "*"
+django-cors-headers = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
