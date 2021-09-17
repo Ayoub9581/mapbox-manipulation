@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('mapsowit', '0002_mapsowit_area'),
+        ("mapsowit", "0002_mapsowit_area"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='mapsowit',
-            name='image_url_plot',
-            field=models.TextField(default=''),
+            model_name="mapsowit",
+            name="image_url_plot",
+            field=models.TextField(default=""),
         ),
     ]
